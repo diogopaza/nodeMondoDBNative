@@ -9,8 +9,14 @@ var user = require('../db/users')
 router.get('/',async function(req, res, next) {
   
   
-  user.getUsers('users')
-  res.send('listar usuarios')
+  
+   user.getUsers('testando', function(err, result){
+    if (err) console.log('deu erro ')
+     
+      res.render('users', {users: result} )
+  })
+  
+ 
   
   
 });

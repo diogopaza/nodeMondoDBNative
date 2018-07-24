@@ -13,14 +13,14 @@ exports.createUser = async function(name,age){
 
 }
 
-exports.getUsers = async function(collection){
+exports.getUsers = async function(myCollection, callback){
 
     var db = utilsBD.getDbConnection()
-    console.log(db)
+   
     
-    collection = db.collection('testando')
-    myDocs = await  collection.find({}).toArray()
-    console.log(myDocs)
+    collection = await db.collection(myCollection)
+    await  collection.find({}).toArray(callback)
+    
     
 }
 
