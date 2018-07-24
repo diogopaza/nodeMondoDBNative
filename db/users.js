@@ -1,9 +1,14 @@
 var utilsBD = require('./utils')
 
-var db = utilsBD.getDbConnection
 
-db.createCollecction('users', function(err, collection){
 
-    if(err) console.log('Erro ao criar collection')
-        console.log(collection)
-})
+exports.createUser = async function(name,age){
+    var db = utilsBD.getDbConnection()
+    const collection = db.collection('testando')
+    await collection.insertMany([
+      {name: name, age: age}
+    ])
+    console.log('usuario criado com sucesso')
+
+
+}

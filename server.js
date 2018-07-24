@@ -17,6 +17,7 @@ app.set('view engine', 'ejs')
 app.set('views', './views')
 
 app.use(cors(corsOptions))
+app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
 app.use('/public', express.static(__dirname + '/public'))
 app.use('/', index)
