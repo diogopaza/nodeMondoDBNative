@@ -3,14 +3,16 @@ var router = express.Router();
 var mongo = require('../db/utils')
 var user = require('../db/users')
 
-var UsersDB = 
+
 
 /* GET users listing. */
 router.get('/',async function(req, res, next) {
   
   
+  user.getUsers('users')
+  res.send('listar usuarios')
   
-  res.send('respond with a resource');
+  
 });
 
 router.post('/',async function(req, res, next) {
